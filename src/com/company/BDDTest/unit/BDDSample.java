@@ -1,4 +1,4 @@
-package com.company.BDDTest;
+package com.company.BDDTest.unit;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -9,7 +9,7 @@ public class BDDSample {
      * EX 1
      */
     @Test
-    public void testMethodReturnFalse() {
+    public void testMethodIsFullReturnFalse() {
         int weight = 1000;
 
         boolean isFull = Elevator.isFull(weight);
@@ -45,18 +45,35 @@ public class BDDSample {
         assertFalse(isFull);
     }
 
+
     /**
      * EX 3
      */
     @Test
-    public void shouldNotFull_givenElevatorNotOverWeight() {
-        //
+    public void shouldReturnFalse_givenElevatorNotOverWeight() {
+        // Given elevator weight
         int weight = 1000;
 
-        //
+        // When check elevator is full
         boolean isFull = Elevator.isFull(weight);
 
-        //
+        // Then should return false
+        assertFalse(isFull);
+    }
+
+
+    /**
+     * Better
+     */
+    @Test
+    public void shouldNotFull_givenElevatorNotOverWeight() {
+        // Given not over weight elevator
+        int weight = 1000;
+
+        // When check elevator is full
+        boolean isFull = Elevator.isFull(weight);
+
+        // Then elevator is not full
         assertFalse(isFull);
     }
 
